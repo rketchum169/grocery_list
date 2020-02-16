@@ -4,7 +4,7 @@ import "./App.css";
 function Item({item, i}) {
   return (
     <div className="item">
-      { item.text }
+      <li>{ item.text }</li>
     </div>
   )
 }
@@ -21,7 +21,12 @@ function ItemForm({addItem}) {
 
   return( 
     <form onSubmit={handleButtonClick}>
-      <input type="text" className="input" value={textValue} onChange ={e => setTextValue (e.target.textValue)} />
+      <input 
+      type="text" 
+      className="input" 
+      value={textValue} 
+      placeholder="Add Item..."
+      onChange ={e => setTextValue (e.target.value)} />
     </form>
   )
 }

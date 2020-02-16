@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import "./App.css";
 
-function Item({item, i}) {
+function Item({item, index, completeItem, deleteItem}) {
   return (
-    <div className="item">
-      <li>{ item.text }</li>
+    <div 
+    className="item"
+    style={{ textDecoration: item.isCompleted ? "line-through" : "" }} 
+    >
+      <li>
+        { item.text }
+        <button onClick={()=> completeItem(index)}>&#10004;</button>
+        <button onClick={()=> deleteItem(index)}>&#10006;</button>
+      
+      </li>
+
     </div>
   )
 }
@@ -12,7 +21,7 @@ function Item({item, i}) {
 function ItemForm({addItem}) {
   const [textValue, setTextValue] = useState("")
 
-  const handleButtonClick = (e)=> {
+  const handleSubmit = (e)=> {
     e.preventDefault()
     if(!textValue) return
     addItem(textValue)
@@ -20,7 +29,7 @@ function ItemForm({addItem}) {
   }
 
   return( 
-    <form onSubmit={handleButtonClick}>
+    <form onSubmit={handleSubmit}>
       <input 
       type="text" 
       className="input" 
@@ -43,13 +52,25 @@ const App = ()=> {
     const newItems = [...items, {text}]
     setItems(newItems)
   }  
+
+  const completeItem = index => {
+    const newItems = [...items]
+    newItems[index].isCompleted = true;
+    setItems(newItems)
+  }
+
+  const deleteItem = index => {
+    const newItems = [...items]
+    newItems.splice(index, 1)
+    setItems(newItems)
+  }
  
   return (
     <div className="App">
       <ItemForm addItem={addItem}/>
       <ul>
-        {items.map((item, i) => (
-          <Item key={i} index={i} item={item} />
+        {items.map((item, index) => (
+          <Item key={index} index={index} item={item} completeItem={completeItem} deleteItem={deleteItem} />
         ))}
       </ul>
 

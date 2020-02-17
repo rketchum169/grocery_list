@@ -67,6 +67,8 @@ const App = ()=> {
  
   return (
     <div className="App">
+      <h1>Grocery List</h1>
+      <p>Enter Items on your list then cross them off as you get them</p>
       <ItemForm addItem={addItem}/>
       <ul>
         {items.map((item, index) => (

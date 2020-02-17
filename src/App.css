@@ -1,36 +1,63 @@
+body {
+  background-color: lightgrey;
+  background-image: url(https://images.unsplash.com/photo-1580913428735-bd3c269d6a82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+  align-content: center;
+}
+
 .App {
   background-color: grey;
   margin:40px;
   padding: 20px;
-  width: 40%;
+  width: 50%;
   border-radius: 5px;
   align-content: center;
+  box-shadow: 0px 2px 5px #000000;
 }
 
-#save {
-  width:10%;
-}
-
-.App textarea {
+.input {
+  width: 95%;
+  align-items: center;
+  padding: 10px;
   border-radius: 5px;
   border: none;
-  width:90%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
 }
 
-ul li {
+.item {
   background-color: lightgrey;
   border-radius: 5px;
   list-style: none;
-  padding: 10px;
+  padding:5px;
   box-shadow: 0px 2px 5px #707070;
-  margin:10px;
-  width: 90%;
-  display: list-item;
+  margin-bottom: 10px;
+  
+}
+  
+
+ul {
+  padding-left: 0;
 }
 
 button {
- align-items: flex-end;
+  padding: 10px;
+  border-radius: 5px;
+
 }
+
+h1 {
+  color: white;
+  margin-top: 0px;
+  margin-bottom: -5px;
+}
+ p {
+   margin-top: 10px ;
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+ }
+
+
+
 
 
 
